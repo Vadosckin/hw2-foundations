@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>train1</title>
+</head>
+<body>
+    <!--Заготовка HTML-->
+    <div class="container">
+        <h1>JS arrow-functions 2022.</h1>
+        <h2><a href="#">Arrows customer</a></h2>
+        <ol>
+            <li>Sintaksis of arrow function</li>
+            <li>Сокращенные методы записи</li>
+            <li>Стрелочные функции и this</li>
+            <li>Arrows functions and arguments</li>
+        </ol>
+
+        <div class="sections">
+            <button class="b-1">button1</button>
+            <button class="b-2">button2</button>
+            <button class="b-3">button3</button>
+        </div>
+    </div>
+
+    <!--Begin of work with JS(Esma 6)-->
+
+    <script>
+        function sum (a, b){
+            return a + b;
+        }
+
+        function multi(a, b){
+            return a * b;
+        }
+
+       document.querySelector('.b-1').addEventListener('click', function() {
+            let res = sum(23, 45);
+            console.log(res);
+       });
+
+
+       //Arrow variant of function:
+       document.querySelector('.b-1').addEventListener('click', () => {
+            let res = sum(23, 45);
+            console.log(res);
+       });
+
+       //запуск двух функций:
+       document.querySelector('.b-2').addEventListener('click', function() {
+            let res = sum(23, 45);
+            console.log(res);
+            let res2 = multi(23, 45);
+            console.log(res2);
+       });
+
+       //Arrow variant of function:
+       document.querySelector('.b-2').addEventListener('click', () => {
+            let res = sum(23, 45);
+            console.log(res);
+            let res2 = multi(23, 45);
+            console.log(res2);
+       });
+
+       //callback method:
+       const arr1 = [4, 1, 2, 3, 43];
+
+       function pow2(a){
+            return a**2;
+       }
+
+       const res2 = arr1.map(pow2);
+       console.log(res2);
+
+       //Anonym function:
+       const res3 = ar1.map(function(a){
+        return a**2;
+       });
+       console.log(res3);
+
+       //Arrow function
+       const res4 = ar1.map((a) => {
+        return a**2;
+       });
+       console.log(res4);
+
+       //Short sintacsis of arrow functions
+       // одна строка убрать {} return
+       // один аргумент убираем ()
+       const res5 = ar1.map(a => a**2);
+       console.log(res5);
+
+       //filter to ar1:
+       const res6 = ar1.filter(function (item, index){
+        if (index % 2 === 0){
+            return true;
+        }
+       });
+       console.log(res6);
+
+       //filter in arrow variant:
+       const res7 = ar1.filter((item, index) => (index %2 === 0) );
+       console.log(res7);
+
+       // arrow & this
+       document.querySelector('.b-3').addEventListener('click', function()
+       {
+            console.log(this);
+       });
+
+       document.querySelector('.b-3').addEventListener('click', () => {
+            console.log(this);
+       });
+
+       // arrow & arguments
+
+       const f1 = (...arg) => {
+        console.log(arg);
+        console.log('work');
+       }
+
+       f1(23, 234);
+
+    </script>
+</body>
+</html>

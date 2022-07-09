@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+</head>
+<body>
+    <div class="container">
+        <ol>
+           <li class="out-1">Button_1</li>
+           <li class="out-2">Button_2</li>
+           <li class="out-3">Button_3</li>
+        </ol>
+    </div>
+
+    <script>
+
+        const arr1 = [7, 4, 5, 6, 8];
+        const out1 = document.querySelector('.out-1');
+        const out2 = document.querySelector('.out-2');
+        const out3 = document.querySelector('.out-3');
+
+        function f1(arr, myFunc, block) {
+            arr1[3] = arr1[3] * 2;
+            //out1.innerHTML = arr1;
+            myFunc(arr, block);
+        }
+
+        function showArr(arr, block) {
+            let out = '';
+            for(let i = 0; i < arr1.length; i++) {
+                out += arr1[i] + '_';
+            }
+            block.innerHTML = out;
+        }
+
+        function showArr2(arr, block) {
+            let out = '';
+            for(let i = 0; i < arr1.length; i++) {
+                out += arr1[i] + '_';
+            }
+            block.innerHTML = out;
+        }
+
+        function showArr3(arr, block) {
+            let out = '';
+            for(let i = 0; i < arr1.length; i++) {
+                out += arr1[i] + '_';
+            }
+            block.innerHTML = out;
+        }
+
+        f1(arr1, showArr, out1);
+        f1(arr1, showArr2, out2);
+        f1(arr1, showArr3, out3);
+
+
+        //callback example:
+        function squad(item){
+            return item**2;
+        }
+
+        const arr2 = arr1.map(item => item**2);
+        console.log(arr2);
+        showArr(arr2, out3);
+
+        //example with input:
+
+        
+    </script>
+</body>
+</html>
